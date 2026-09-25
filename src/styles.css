@@ -9,3 +9,14 @@
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities) source(none);
 @source "./components";
+
+/* Brand tokens: change these to re-theme every component. */
+@theme {
+  --color-brand: #ff5316;
+  --color-brand-hover: #e8450b;
+  --color-brand-navy: #0b1560;
+  --color-field-border: #dedede;
+  --color-field-placeholder: #7a7a7a;
+  --color-field-label: #1a1a1a;
+  --color-field-error: #e60000;
+}

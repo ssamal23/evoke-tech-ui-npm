@@ -1,11 +1,8 @@
 import { forwardRef, useId } from 'react';
 import { cn } from '../../utils/cn';
+import { fieldControlClass, fieldLabelClass, fieldMessageClass, fieldSizes } from '../Field/fieldStyles';
 
-const sizes = {
-  sm: 'h-8 text-sm',
-  md: 'h-10 text-sm',
-  lg: 'h-12 text-base',
-};
+const paddingLeft = { sm: 'pl-4', md: 'pl-5', lg: 'pl-6' };
 
 /**
  * Styled native <select>. Native keeps keyboard, screen-reader and mobile
@@ -45,11 +42,11 @@ export const Dropdown = forwardRef(function Dropdown(
       : { defaultValue: defaultValue ?? (placeholder ? '' : undefined) };
 
   return (
-    <div className={cn('flex flex-col gap-1.5', fullWidth && 'w-full', containerClassName)}>
+    <div className={cn('flex flex-col gap-2', fullWidth && 'w-full', containerClassName)}>
       {label && (
-        <label htmlFor={selectId} className="text-sm font-medium text-gray-700">
+        <label htmlFor={selectId} className={fieldLabelClass}>
           {label}
-          {required && <span className="ml-0.5 text-red-600">*</span>}
+          {required && <span aria-hidden="true">*</span>}
         </label>
       )}
       <div className="relative flex items-center">
@@ -61,13 +58,10 @@ export const Dropdown = forwardRef(function Dropdown(
           aria-invalid={error ? true : undefined}
           aria-describedby={message ? messageId : undefined}
           className={cn(
-            'w-full appearance-none rounded-md border bg-white pl-3 pr-9 text-gray-900 transition-colors cursor-pointer',
-            'focus:outline-none focus:ring-2',
-            'disabled:cursor-not-allowed disabled:bg-gray-100 disabled:opacity-60',
-            error
-              ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
-              : 'border-gray-300 focus:border-blue-500 focus:ring-blue-200',
-            sizes[size] ?? sizes.md,
+            fieldControlClass,
+            'appearance-none cursor-pointer pr-11',
+            fieldSizes[size] ?? fieldSizes.md,
+            paddingLeft[size] ?? paddingLeft.md,
             className,
           )}
           {...valueProps}
@@ -85,7 +79,7 @@ export const Dropdown = forwardRef(function Dropdown(
           ))}
         </select>
         <svg
-          className="pointer-events-none absolute right-3 h-4 w-4 text-gray-500"
+          className="pointer-events-none absolute right-4 h-5 w-5 text-field-placeholder"
           viewBox="0 0 20 20"
           fill="currentColor"
           aria-hidden="true"
@@ -98,7 +92,7 @@ export const Dropdown = forwardRef(function Dropdown(
         </svg>
       </div>
       {message && (
-        <p id={messageId} className={cn('text-xs', error ? 'text-red-600' : 'text-gray-500')}>
+        <p id={messageId} className={fieldMessageClass(Boolean(error))}>
           {message}
         </p>
       )}

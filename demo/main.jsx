@@ -38,6 +38,18 @@ function App() {
     <main className="mx-auto flex max-w-3xl flex-col gap-6 p-4 sm:p-8">
       <h1 className="text-2xl font-bold text-gray-900">Reusable UI Playground</h1>
 
+      <Section title="Contact form (matches reference design)">
+        <div className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+          <Input label="First Name" required placeholder="Enter Your First Name" error="Please complete this required field." />
+          <Input label="Last Name" placeholder="Enter Your Last Name" />
+          <Input label="Email" type="email" required placeholder="Enter Your Email" error="Please complete this required field." />
+          <Input label="Phone" type="tel" required placeholder="Enter Your Phone Number" />
+        </div>
+        <div className="mt-6">
+          <Button>Get in Touch</Button>
+        </div>
+      </Section>
+
       <Section title="Buttons">
         <div className="flex flex-wrap gap-3">
           <Button>Primary</Button>

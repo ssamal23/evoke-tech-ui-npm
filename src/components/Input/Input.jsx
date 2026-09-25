@@ -1,11 +1,12 @@
 import { forwardRef, useId } from 'react';
 import { cn } from '../../utils/cn';
-
-const sizes = {
-  sm: 'h-8 text-sm',
-  md: 'h-10 text-sm',
-  lg: 'h-12 text-base',
-};
+import {
+  fieldControlClass,
+  fieldLabelClass,
+  fieldMessageClass,
+  fieldPaddingX,
+  fieldSizes,
+} from '../Field/fieldStyles';
 
 export const Input = forwardRef(function Input(
   {
@@ -31,16 +32,16 @@ export const Input = forwardRef(function Input(
   const message = error || helperText;
 
   return (
-    <div className={cn('flex flex-col gap-1.5', fullWidth && 'w-full', containerClassName)}>
+    <div className={cn('flex flex-col gap-2', fullWidth && 'w-full', containerClassName)}>
       {label && (
-        <label htmlFor={inputId} className="text-sm font-medium text-gray-700">
+        <label htmlFor={inputId} className={fieldLabelClass}>
           {label}
-          {required && <span className="ml-0.5 text-red-600">*</span>}
+          {required && <span aria-hidden="true">*</span>}
         </label>
       )}
       <div className="relative flex items-center">
         {leftIcon && (
-          <span className="pointer-events-none absolute left-3 flex text-gray-400">{leftIcon}</span>
+          <span className="pointer-events-none absolute left-4 flex text-field-placeholder">{leftIcon}</span>
         )}
         <input
           ref={ref}
@@ -51,21 +52,17 @@ export const Input = forwardRef(function Input(
           aria-invalid={error ? true : undefined}
           aria-describedby={message ? messageId : undefined}
           className={cn(
-            'w-full rounded-md border bg-white px-3 text-gray-900 placeholder:text-gray-400 transition-colors',
-            'focus:outline-none focus:ring-2',
-            'disabled:cursor-not-allowed disabled:bg-gray-100 disabled:opacity-60',
-            error
-              ? 'border-red-500 focus:border-red-500 focus:ring-red-200'
-              : 'border-gray-300 focus:border-blue-500 focus:ring-blue-200',
-            sizes[size] ?? sizes.md,
-            leftIcon && 'pl-9',
+            fieldControlClass,
+            fieldSizes[size] ?? fieldSizes.md,
+            fieldPaddingX[size] ?? fieldPaddingX.md,
+            leftIcon && 'pl-11',
             className,
           )}
           {...rest}
         />
       </div>
       {message && (
-        <p id={messageId} className={cn('text-xs', error ? 'text-red-600' : 'text-gray-500')}>
+        <p id={messageId} className={fieldMessageClass(Boolean(error))}>
           {message}
         </p>
       )}
