@@ -1,0 +1,3 @@
+/* Playground-only styles (not shipped in the package). */
+@import "tailwindcss";
+@source "../src/components";

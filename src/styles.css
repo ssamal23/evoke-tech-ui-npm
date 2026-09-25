@@ -1,0 +1,11 @@
+/*
+ * Library stylesheet. Preflight (Tailwind's CSS reset) is intentionally left
+ * out so importing this file never restyles the consuming app.
+ * Only classes used inside src/components are generated.
+ */
+/* Declare Tailwind's full layer order so a host app that also uses Tailwind
+   keeps its reset (base) below these utilities, whichever CSS loads first. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "./components";
