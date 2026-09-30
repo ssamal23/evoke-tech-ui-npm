@@ -1,7 +1,7 @@
 {
   "name": "@evoke-tech/ui",
-  "version": "0.1.0",
-  "description": "Reusable React form components (Button, Input, Dropdown) styled with Tailwind CSS",
+  "version": "0.2.0",
+  "description": "Reusable React components (Button, Input, Dropdown, Checkbox, Radio, Tabs, Breadcrumbs, Tooltip, SideNav, Typography) styled with Tailwind CSS",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -54,7 +54,13 @@
     "components",
     "button",
     "input",
-    "dropdown"
+    "dropdown",
+    "checkbox",
+    "radio",
+    "tabs",
+    "breadcrumbs",
+    "tooltip",
+    "sidenav"
   ],
   "license": "MIT"
 }

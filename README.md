@@ -2,7 +2,7 @@
 
 Reusable React form components styled with Tailwind CSS v4.
 
-Components: `Button`, `Input`, `Dropdown`
+Components: `Button`, `Input`, `Dropdown`, `Checkbox`, `Radio` / `RadioGroup`, `Tabs`, `Breadcrumbs`, `Tooltip`, `SideNav`, `Typography`
 
 ## Install
 
@@ -79,6 +79,79 @@ This is a styled native `<select>`, so keyboard, screen-reader and mobile suppor
 | `placeholder` | `string`: a disabled first option that is selected at the start | none |
 | `label`, `helperText`, `error`, `size`, `required`, `disabled`, `fullWidth`, `containerClassName` | Same as Input | |
 
+### Checkbox
+
+Styled native checkbox. Extra props are passed to the `<input>`.
+
+| Prop | Type | Default |
+|---|---|---|
+| `label`, `helperText`, `error`, `containerClassName` | Same as Input | |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` |
+| `indeterminate` | `boolean`: shows the mixed state | `false` |
+
+### Radio and RadioGroup
+
+`RadioGroup` renders a `<fieldset>` of radios that share one name. Use `options`, or pass `<Radio value label />` children. It can be controlled (`value` + `onChange`) or uncontrolled (`defaultValue`). Note that `onChange` receives the value, not the event.
+
+| Prop | Type | Default |
+|---|---|---|
+| `options` | `{ value, label, disabled? }[]` | none |
+| `label`, `helperText`, `error`, `size`, `required`, `disabled` | Same as Input | |
+| `orientation` | `'vertical' \| 'horizontal'` | `'vertical'` |
+| `name`, `value`, `defaultValue`, `onChange` | | |
+
+### Tabs
+
+Follows the WAI-ARIA tabs pattern. Arrow keys, Home and End move between tabs, and disabled tabs are skipped. Only the active panel is rendered.
+
+| Prop | Type | Default |
+|---|---|---|
+| `items` | `{ value, label, content?, disabled? }[]` | `[]` |
+| `value` / `defaultValue` | `string`: controlled / uncontrolled selection | first enabled tab |
+| `onChange` | `(value) => void` | none |
+
+### Breadcrumbs
+
+| Prop | Type | Default |
+|---|---|---|
+| `items` | `{ label, href?, onClick? }[]`: the last item is the current page | `[]` |
+| `separator` | `ReactNode` | chevron |
+
+### Tooltip
+
+Wrap one focusable element. The tip shows on hover and focus, and Escape closes it. It is positioned with CSS next to the trigger, so an ancestor with `overflow: hidden` can clip it.
+
+| Prop | Type | Default |
+|---|---|---|
+| `content` | `ReactNode` | none (no tooltip) |
+| `placement` | `'top' \| 'bottom' \| 'left' \| 'right'` | `'top'` |
+
+### SideNav
+
+| Prop | Type | Default |
+|---|---|---|
+| `items` | `{ value, label, icon?, badge?, href?, onClick?, disabled?, children? }[]`: `children` makes an expandable group | `[]` |
+| `activeValue` | `string`: the current page | none |
+| `onSelect` | `(value, item) => void` | none |
+| `header`, `footer` | `ReactNode` | none |
+
+### Typography
+
+| Variant | Size | Weight | Element |
+|---|---|---|---|
+| `h1` | 32px | Bold | `h1` |
+| `h2` | 28px | Semibold | `h2` |
+| `h3` | 24px | Semibold | `h3` |
+| `h4` | 22px | Semibold | `h4` |
+| `h5` | 18px | Semibold | `h5` |
+| `h6` | 16px | Semibold | `h6` |
+| `p1` | 16px | Normal | `p` |
+| `p2` | 14px | Normal | `p` |
+| `p3` | 12px | Semibold | `p` |
+| `p4` | 12px | Normal | `p` |
+
+Use `as` to change the element without changing the look: `<Typography variant="h3" as="h1">`. The font family is the `--font-brand` token in `src/styles.css`. The host app must load the font files itself.
+
 ## Development
 
 ```bash
@@ -92,8 +165,8 @@ npm run build      # outputs dist/index.js, dist/index.cjs, dist/styles.css
 
 ```bash
 npm run build
-npm pack                                   # creates evoke-tech-ui-0.1.0.tgz
-cd ../your-app && npm install ../Reusable_html_NPM/evoke-tech-ui-0.1.0.tgz
+npm pack                                   # creates evoke-tech-ui-0.2.0.tgz
+cd ../your-app && npm install ../Reusable_html_NPM/evoke-tech-ui-0.2.0.tgz
 ```
 
 ### Adding a new component
