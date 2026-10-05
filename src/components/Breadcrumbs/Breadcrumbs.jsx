@@ -29,7 +29,7 @@ export function Breadcrumbs({ items = [], separator, className, ...rest }) {
   const last = items.length - 1;
 
   return (
-    <nav aria-label="Breadcrumb" className={className} {...rest}>
+    <nav aria-label="Breadcrumb" className={cn('font-brand', className)} {...rest}>
       <ol className="m-0 flex list-none flex-wrap items-center gap-2 p-0 text-sm">
         {items.map((item, i) => {
           const isCurrent = i === last;

@@ -44,7 +44,7 @@ export function Tooltip({ content, placement = 'top', children, className }) {
           role="tooltip"
           id={id}
           className={cn(
-            'pointer-events-none absolute z-50 w-max max-w-xs rounded-md bg-brand-navy px-3 py-1.5 text-xs font-medium text-white shadow-lg',
+            'pointer-events-none absolute z-50 w-max font-brand max-w-xs rounded-md bg-brand-navy px-3 py-1.5 text-xs font-medium text-white shadow-lg',
             placements[placement] ?? placements.top,
             className,
           )}

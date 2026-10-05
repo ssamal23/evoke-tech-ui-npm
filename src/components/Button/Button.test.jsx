@@ -33,13 +33,13 @@ describe('Button', () => {
 
   it('uses the brand color by default', () => {
     render(<Button>Get in Touch</Button>);
-    expect(screen.getByRole('button')).toHaveClass('bg-brand', 'rounded-full');
+    expect(screen.getByRole('button')).toHaveClass('bg-brand', 'rounded-full', 'h-14', 'text-base', 'font-normal', 'font-brand');
   });
 
   it('applies variant and size classes', () => {
     render(<Button variant="danger" size="lg">Delete</Button>);
     const btn = screen.getByRole('button');
-    expect(btn).toHaveClass('bg-red-600', 'h-14');
+    expect(btn).toHaveClass('bg-red-600', 'h-16');
   });
 
   it('merges custom className and forwards ref', () => {

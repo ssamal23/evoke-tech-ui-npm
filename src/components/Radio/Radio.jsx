@@ -2,11 +2,11 @@ import { createContext, forwardRef, useContext, useId, useState } from 'react';
 import { cn } from '../../utils/cn';
 
 const dotSizes = {
-  sm: 'h-4 w-4 before:h-2 before:w-2',
-  md: 'h-5 w-5 before:h-2.5 before:w-2.5',
-  lg: 'h-6 w-6 before:h-3 before:w-3',
+  sm: 'h-3.5 w-3.5 before:h-1.5 before:w-1.5',
+  md: 'h-4 w-4 before:h-2 before:w-2',
+  lg: 'h-5 w-5 before:h-2.5 before:w-2.5',
 };
-const labelSizes = { sm: 'text-sm', md: 'text-base', lg: 'text-lg' };
+const labelSizes = { sm: 'text-xs', md: 'text-sm', lg: 'text-base' };
 
 const RadioGroupContext = createContext(null);
 
@@ -34,7 +34,7 @@ export const Radio = forwardRef(function Radio(
     <label
       htmlFor={inputId}
       className={cn(
-        'inline-flex items-center gap-3 text-field-label',
+        'inline-flex items-center gap-3 font-brand text-field-label',
         labelSizes[resolvedSize] ?? labelSizes.md,
         isDisabled ? 'cursor-not-allowed opacity-60' : 'cursor-pointer',
         containerClassName,
@@ -113,7 +113,7 @@ export function RadioGroup({
       <fieldset
         aria-invalid={error ? true : undefined}
         aria-describedby={message ? messageId : undefined}
-        className={cn('m-0 flex min-w-0 flex-col gap-2 border-0 p-0', className)}
+        className={cn('m-0 flex min-w-0 flex-col gap-2 border-0 p-0 font-brand', className)}
         {...rest}
       >
         {label && (

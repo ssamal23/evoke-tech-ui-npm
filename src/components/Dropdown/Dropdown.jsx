@@ -1,8 +1,6 @@
 import { forwardRef, useId } from 'react';
 import { cn } from '../../utils/cn';
-import { fieldControlClass, fieldLabelClass, fieldMessageClass, fieldSizes } from '../Field/fieldStyles';
-
-const paddingLeft = { sm: 'pl-4', md: 'pl-5', lg: 'pl-6' };
+import { fieldControlClass, fieldLabelClass, fieldMessageClass, fieldPaddingLeft, fieldSizes } from '../Field/fieldStyles';
 
 /**
  * Styled native <select>. Native keeps keyboard, screen-reader and mobile
@@ -61,7 +59,7 @@ export const Dropdown = forwardRef(function Dropdown(
             fieldControlClass,
             'appearance-none cursor-pointer pr-11',
             fieldSizes[size] ?? fieldSizes.md,
-            paddingLeft[size] ?? paddingLeft.md,
+            fieldPaddingLeft[size] ?? fieldPaddingLeft.md,
             className,
           )}
           {...valueProps}

@@ -40,6 +40,22 @@ export function SignupForm() {
 
 The consuming app does **not** need Tailwind. The stylesheet contains only the classes these components use, and it has no global CSS reset, so it won't restyle the rest of your app.
 
+### Font
+
+All components use **Inter**, the brand font. The package does not download font files, so load Inter once in your app, for example in `index.html`:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+```
+
+If Inter isn't loaded, the components fall back to the system font.
+
+### Sizes
+
+The default size (`md`) matches the Evoke design: fields and buttons are 56px tall with 16px text, and checkboxes and radios are 16px with 14px labels. Use `size="sm"` or `size="lg"` for smaller or larger variants.
+
 ## API
 
 Every component forwards its `ref` and passes any other props to the underlying HTML element (`onClick`, `name`, `onChange`, `aria-*` and so on). Use `className` to add or override classes.
@@ -150,7 +166,7 @@ Wrap one focusable element. The tip shows on hover and focus, and Escape closes 
 | `p3` | 12px | Semibold | `p` |
 | `p4` | 12px | Normal | `p` |
 
-Use `as` to change the element without changing the look: `<Typography variant="h3" as="h1">`. The font family is the `--font-brand` token in `src/styles.css`. The host app must load the font files itself.
+Use `as` to change the element without changing the look: `<Typography variant="h3" as="h1">`. The font family is the `--font-brand` token in `src/styles.css` (Inter). See [Font](#font) for loading it.
 
 ## Development
 

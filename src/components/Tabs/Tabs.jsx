@@ -48,7 +48,7 @@ export function Tabs({
   const active = items.find((i) => i.value === current);
 
   return (
-    <div className={className}>
+    <div className={cn('font-brand', className)}>
       <div
         ref={listRef}
         role="tablist"
@@ -71,7 +71,7 @@ export function Tabs({
               disabled={item.disabled}
               onClick={() => select(item.value)}
               className={cn(
-                '-mb-px cursor-pointer whitespace-nowrap rounded-t border-b-2 px-1 pb-3 pt-2 text-base font-semibold transition-colors',
+                '-mb-px cursor-pointer whitespace-nowrap font-brand rounded-t border-b-2 px-1 pb-3 pt-2 text-base font-semibold transition-colors',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2',
                 'disabled:cursor-not-allowed disabled:opacity-50',
                 selected

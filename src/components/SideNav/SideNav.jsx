@@ -2,7 +2,7 @@ import { useId, useState } from 'react';
 import { cn } from '../../utils/cn';
 
 const itemBase = cn(
-  'flex w-full cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-left text-base font-medium transition-colors',
+  'flex w-full cursor-pointer items-center gap-3 rounded-lg font-brand px-3 py-2.5 text-left text-base font-medium transition-colors',
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2',
   'aria-disabled:cursor-not-allowed aria-disabled:opacity-50 disabled:cursor-not-allowed disabled:opacity-50',
 );
@@ -127,7 +127,7 @@ export function SideNav({
   return (
     <nav
       aria-label={ariaLabel}
-      className={cn('flex w-64 shrink-0 flex-col gap-4 border-r border-field-border bg-white p-4', className)}
+      className={cn('flex w-64 shrink-0 flex-col gap-4 border-r border-field-border bg-white p-4 font-brand', className)}
       {...rest}
     >
       {header && <div>{header}</div>}

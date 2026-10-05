@@ -10,9 +10,9 @@ const variants = {
 };
 
 const sizes = {
-  sm: 'h-9 px-4 text-sm gap-1.5',
-  md: 'h-12 px-7 text-base gap-2',
-  lg: 'h-14 px-9 text-lg gap-2',
+  sm: 'h-10 px-5 text-sm gap-1.5',
+  md: 'h-14 px-9 text-base gap-2',
+  lg: 'h-16 px-10 text-lg gap-2',
 };
 
 function Spinner() {
@@ -49,7 +49,7 @@ export const Button = forwardRef(function Button(
       disabled={isDisabled}
       aria-busy={loading || undefined}
       className={cn(
-        'inline-flex items-center justify-center rounded-full font-semibold transition-colors cursor-pointer',
+        'inline-flex items-center justify-center rounded-full font-brand font-normal transition-colors cursor-pointer',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
         'disabled:cursor-not-allowed disabled:opacity-50',
         variants[variant] ?? variants.primary,

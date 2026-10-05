@@ -1,8 +1,8 @@
 import { forwardRef, useEffect, useId, useImperativeHandle, useRef } from 'react';
 import { cn } from '../../utils/cn';
 
-const boxSizes = { sm: 'h-4 w-4', md: 'h-5 w-5', lg: 'h-6 w-6' };
-const labelSizes = { sm: 'text-sm', md: 'text-base', lg: 'text-lg' };
+const boxSizes = { sm: 'h-3.5 w-3.5', md: 'h-4 w-4', lg: 'h-5 w-5' };
+const labelSizes = { sm: 'text-xs', md: 'text-sm', lg: 'text-base' };
 
 /** Styled native checkbox with optional label, helper/error text and indeterminate state. */
 export const Checkbox = forwardRef(function Checkbox(
@@ -32,7 +32,7 @@ export const Checkbox = forwardRef(function Checkbox(
   }, [indeterminate]);
 
   return (
-    <div className={cn('flex flex-col gap-1', containerClassName)}>
+    <div className={cn('flex flex-col gap-1 font-brand', containerClassName)}>
       <label
         htmlFor={inputId}
         className={cn(
